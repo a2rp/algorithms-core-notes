@@ -1,4 +1,4 @@
-import{c as t,j as r,h as e,a,d as i,F as s}from"./index-D0aA_HMN.js";const n={Wrapper:t.section`
+import{c as t,j as r,h as e,a,d as i,F as s}from"./index-DuOKri2p.js";const n={Wrapper:t.section`
         width: 100%;
         padding: 2rem 0;
 
