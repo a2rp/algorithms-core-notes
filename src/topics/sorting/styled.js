@@ -3,176 +3,162 @@ import styled from "styled-components";
 export const Styled = {
     Wrapper: styled.section`
         width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 5px;
-    `,
+        padding: 2rem 0;
 
-    Container: styled.div`
-        width: 100%;
-        max-width: 1440px;
-        background: var(--color-surface);
-        border: 1px solid var(--color-border);
-        border-left: 5px solid var(--color-primary);
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 15px 45px var(--color-shadow);
-        transition: 0.25s ease;
-
-        &:hover {
-            transform: translateY(-3px);
+        .pageHeader {
+            margin-bottom: 1.5rem;
         }
-    `,
 
-    Header: styled.div`
-        padding: 28px 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: var(--color-surface-2);
-        cursor: pointer;
-
-        .left {
+        .titleSection {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 1rem;
         }
 
-        .icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 14px;
-            background: var(--color-surface);
+        .iconBox {
+            width: 3rem;
+            height: 3rem;
+            flex-shrink: 0;
             display: grid;
             place-items: center;
-            color: var(--color-primary);
-            transition:
-                transform 0.2s ease,
-                border-color 0.2s ease;
             border: 1px solid var(--color-border);
+            border-radius: 0.9rem;
+            background: var(--color-surface);
+            color: var(--color-primary);
+            box-shadow: 0 0.5rem 1.5rem var(--color-shadow);
         }
 
-        &:hover .icon {
-            transform: scale(1.05) rotate(-1deg);
-            border-color: var(--color-border-light);
+        .iconBox svg {
+            font-size: 1.2rem;
         }
 
-        .titleBlock {
+        .title {
+            font-size: clamp(1.7rem, 3vw, 2.25rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--color-text-primary);
+        }
+
+        .subtitle {
+            margin-top: 0.4rem;
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+
+        .intro {
+            max-width: 85ch;
+            margin-bottom: 1.5rem;
+            padding: 1.25rem 1.4rem;
+            border: 1px solid var(--color-border);
+            border-radius: 0.9rem;
+            background: var(--color-surface);
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.75;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .card {
+            min-width: 0;
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            padding: 1.35rem;
+            border: 1px solid var(--color-border);
+            border-radius: 0.9rem;
+            background: var(--color-surface);
+            box-shadow: 0 0.75rem 2rem var(--color-shadow);
+            transition:
+                transform 160ms ease,
+                border-color 160ms ease,
+                background 160ms ease;
         }
 
-        h2 {
-            font-size: 24px;
+        .card:hover {
+            transform: translateY(-0.15rem);
+            border-color: var(--color-border-light);
+            background: var(--color-surface-2);
+        }
+
+        .cardHead {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .cardHead svg {
+            flex-shrink: 0;
+            font-size: 1rem;
+            color: var(--color-primary);
+        }
+
+        .cardHead h3 {
+            font-size: 1rem;
             font-weight: 800;
             color: var(--color-text-primary);
         }
 
-        p {
-            font-size: 12px;
-            color: var(--color-text-muted);
-        }
-
-        svg {
-            font-size: 20px;
-            color: var(--color-primary);
-        }
-    `,
-
-    Content: styled.div`
-        padding: 35px 40px;
-
-        .intro {
-            margin-bottom: 30px;
-            padding: 18px;
-            border-radius: 14px;
-            background: var(--color-surface-2);
-            color: var(--color-text-secondary);
+        .card > p {
+            font-size: 0.88rem;
             line-height: 1.7;
-            border: 1px solid var(--color-border);
+            color: var(--color-text-secondary);
         }
 
-        .grid {
-            /* display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px; */
+        pre {
+            width: 100%;
+            margin: 1rem 0 0.8rem;
+            padding: 1rem;
+            overflow-x: auto;
+            border: 1px solid var(--color-code-border);
+            border-radius: 0.75rem;
+            background: var(--color-code-bg);
+            color: var(--color-text-primary);
+            font-family:
+                ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+                "Liberation Mono", "Courier New", monospace;
+            font-size: 0.75rem;
+            line-height: 1.65;
+            white-space: pre;
         }
 
-        .card {
-            background: var(--color-surface-2);
-            padding: 20px;
-            border-radius: 16px;
-            border: 1px solid var(--color-border);
-            transition: 0.2s ease;
-
-            &:hover {
-                transform: translateY(-4px);
-                border-color: var(--color-primary);
-            }
-
-            .cardHead {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                margin-bottom: 12px;
-
-                svg {
-                    color: var(--color-accent);
-                }
-
-                h3 {
-                    font-size: 15px;
-                    font-weight: 800;
-                    color: var(--color-text-primary);
-                }
-            }
-
-            p {
-                font-size: 14px;
-                line-height: 1.65;
-                margin-bottom: 10px;
-                color: var(--color-text-secondary);
-            }
-
-            .mini {
-                font-size: 12px;
-                color: var(--color-text-muted);
-                margin-top: 2px;
-            }
-
-            pre {
-                background: var(--color-code-bg);
-                padding: 12px;
-                border-radius: 12px;
-                font-size: 12px;
-                overflow-x: auto;
-                border: 1px solid var(--color-code-border);
-                color: var(--color-text-primary);
-                margin-top: 10px;
-                margin-bottom: 8px;
-            }
+        .mini {
+            margin-top: auto;
+            padding-top: 0.25rem;
+            font-size: 0.75rem !important;
+            color: var(--color-text-muted) !important;
         }
 
         @media (max-width: 1100px) {
             .grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 700px) {
-            padding: 24px 18px;
+        @media (max-width: 640px) {
+            padding: 1.25rem 0;
 
-            .grid {
-                grid-template-columns: 1fr;
+            .titleSection {
+                align-items: flex-start;
             }
 
-            .intro {
-                padding: 14px;
+            .iconBox {
+                width: 2.7rem;
+                height: 2.7rem;
             }
 
+            .intro,
             .card {
-                padding: 16px;
+                padding: 1.1rem;
+            }
+
+            pre {
+                padding: 0.85rem;
+                font-size: 0.7rem;
             }
         }
     `,

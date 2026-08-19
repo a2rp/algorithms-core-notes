@@ -1,13 +1,14 @@
-// src/about/aboutAlgorithms/index.jsx
 import React from "react";
-import { Styled } from "./styled";
+
 import {
+    FiClock,
     FiCpu,
     FiShuffle,
-    FiTrendingUp,
-    FiClock,
     FiTarget,
+    FiTrendingUp,
 } from "react-icons/fi";
+
+import { Styled } from "./styled";
 
 const AboutAlgorithms = () => {
     const buildISO = __APP_BUILD_ISO__;
@@ -24,33 +25,40 @@ const AboutAlgorithms = () => {
 
     return (
         <Styled.Wrapper>
-            <Styled.Container>
-                <div className="top">
-                    <div className="left">
-                        <div className="iconBox">
-                            <FiShuffle />
-                        </div>
-                        <div className="titleBlock">
-                            <h2 className="title">About Algorithms</h2>
-                            <p className="subtitle">
-                                Patterns, correctness, and performance thinking
-                            </p>
-                        </div>
+            <div className="headerRow">
+                <div className="titleSection">
+                    <div className="iconBox">
+                        <FiShuffle />
                     </div>
 
-                    <div className="pillRow">
-                        <span className="pill">
-                            <FiTarget /> Correctness
-                        </span>
-                        <span className="pill">
-                            <FiCpu /> Efficiency
-                        </span>
-                        <span className="pill">
-                            <FiTrendingUp /> Patterns
-                        </span>
+                    <div className="titleBlock">
+                        <h2 className="title">About Algorithms</h2>
+
+                        <p className="subtitle">
+                            Patterns, correctness, and performance thinking
+                        </p>
                     </div>
                 </div>
 
+                <div className="pillRow">
+                    <span className="pill">
+                        <FiTarget />
+                        Correctness
+                    </span>
+
+                    <span className="pill">
+                        <FiCpu />
+                        Efficiency
+                    </span>
+
+                    <span className="pill">
+                        <FiTrendingUp />
+                        Patterns
+                    </span>
+                </div>
+            </div>
+
+            <div className="contentCard">
                 <div className="body">
                     <p>
                         Algorithms are step-by-step procedures for solving
@@ -80,16 +88,17 @@ const AboutAlgorithms = () => {
                 </div>
 
                 <div className="metaBar">
-                    <span className="metaLeft">
+                    <div className="metaLeft">
                         <span className="metaIcon">
                             <FiClock />
                         </span>
+
                         <span className="metaLabel">Last updated</span>
-                    </span>
+                    </div>
 
                     <span className="metaValue">{formattedDateTime}</span>
                 </div>
-            </Styled.Container>
+            </div>
         </Styled.Wrapper>
     );
 };

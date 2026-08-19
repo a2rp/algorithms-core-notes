@@ -1,43 +1,101 @@
-// App.styled.js
 import styled from "styled-components";
 
 export const Styled = {
     Wrapper: styled.div`
-        /* border: 1px solid #f00; */
+        width: 100%;
         height: 100vh;
         overflow: hidden;
-        display: flex;
-        flex-direction: column;
+        background: #050506;
+        color: #ffffff;
+
+        @media (max-width: 900px) {
+            height: auto;
+            min-height: 100vh;
+            overflow: visible;
+        }
     `,
+
     Header: styled.header`
-        /* border: 1px solid #f00; */
-        height: 60px;
-        flex-shrink: 0;
-    `,
-    Main: styled.main`
-        /* border: 1px solid #f00; */
-        flex: 1;
-        overflow-y: auto;
         position: relative;
+        z-index: 100;
+    `,
+
+    Main: styled.main`
+        display: grid;
+        grid-template-columns: 15.75rem minmax(0, 1fr);
+        height: calc(100vh - 5rem);
+        overflow: hidden;
+
+        .sidebarWrapper {
+            min-width: 0;
+            height: 100%;
+            overflow: hidden;
+            background: rgba(8, 8, 10, 0.96);
+        }
 
         .contentWrapper {
-            /* border: 1px solid #f00; */
-            min-height: 100%;
-            max-width: 1440px;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            padding: 15px;
+            min-width: 0;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            padding: 0 2rem;
+        }
 
-            .category {
-                margin: 30px 0 15px 0;
-            }
+        .contentWrapper > *:not(.footerWrapper) {
+            width: min(100%, 78rem);
+            margin: 0 auto;
         }
 
         .footerWrapper {
-            /* border: 1px solid #f00; */
-            /* min-height: 300px; */
-            flex-shrink: 0;
+            width: min(100%, 78rem);
+            margin: 2rem auto 0;
+            padding-bottom: 1rem;
+        }
+
+        @media (max-width: 1180px) {
+            grid-template-columns: 15rem minmax(0, 1fr);
+
+            .contentWrapper {
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            display: block;
+            height: auto;
+            min-height: 0;
+            overflow: visible;
+
+            .sidebarWrapper {
+                position: sticky;
+                top: 0;
+                z-index: 90;
+                width: 100%;
+                height: auto;
+                overflow: visible;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                background: rgba(8, 8, 10, 0.98);
+                backdrop-filter: blur(1rem);
+            }
+
+            .contentWrapper {
+                width: 100%;
+                height: auto;
+                min-height: 0;
+                overflow: visible;
+                padding: 0 1.25rem;
+            }
+
+            .footerWrapper {
+                margin-top: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .contentWrapper {
+                padding: 0 1rem;
+            }
         }
     `,
 };

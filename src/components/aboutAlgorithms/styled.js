@@ -1,214 +1,226 @@
-// src/about/aboutAlgorithms/styled.js
 import styled from "styled-components";
 
 export const Styled = {
     Wrapper: styled.section`
         width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 30px;
-    `,
+        padding: 2rem 0 1rem;
 
-    Container: styled.div`
-        width: 100%;
-        max-width: 1440px;
-        background: var(--color-surface);
-        border: 1px solid var(--color-border);
-        border-left: 5px solid var(--color-primary);
-        border-radius: 20px;
-        padding: 48px;
-        box-shadow: 0 14px 40px var(--color-shadow);
-        position: relative;
-        transition:
-            transform 0.25s ease,
-            box-shadow 0.25s ease,
-            border-color 0.25s ease;
-
-        &:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 22px 55px var(--color-shadow);
-            border-color: var(--color-border-light);
-        }
-
-        .top {
+        .headerRow {
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-            gap: 18px;
-            margin-bottom: 26px;
-            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .left {
+        .titleSection {
+            min-width: 0;
             display: flex;
             align-items: center;
-            gap: 14px;
-            min-width: 260px;
+            gap: 1rem;
         }
 
         .iconBox {
-            width: 46px;
-            height: 46px;
-            border-radius: 14px;
+            width: 3rem;
+            height: 3rem;
+            flex-shrink: 0;
             display: grid;
             place-items: center;
             border: 1px solid var(--color-border);
-            background: color-mix(
-                in srgb,
-                var(--color-surface-2) 82%,
-                var(--color-primary)
-            );
+            border-radius: 0.9rem;
+            background: var(--color-surface);
             color: var(--color-primary);
+            box-shadow: 0 0.5rem 1.5rem var(--color-shadow);
             transition:
-                transform 0.2s ease,
-                border-color 0.2s ease;
-
-            svg {
-                font-size: 20px;
-            }
+                transform 160ms ease,
+                border-color 160ms ease,
+                background 160ms ease;
         }
 
-        &:hover .iconBox {
-            transform: scale(1.06) rotate(-1deg);
+        .iconBox svg {
+            font-size: 1.2rem;
+        }
+
+        .iconBox:hover {
+            transform: translateY(-0.15rem);
             border-color: var(--color-border-light);
+            background: var(--color-surface-2);
         }
 
         .titleBlock {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
+            min-width: 0;
         }
 
         .title {
-            font-size: 32px;
+            font-size: clamp(1.7rem, 3vw, 2.25rem);
             font-weight: 800;
-            letter-spacing: 0.4px;
-            color: var(--color-primary);
-            line-height: 1.1;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: var(--color-text-primary);
         }
 
         .subtitle {
-            font-size: 13px;
+            margin-top: 0.45rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
             color: var(--color-text-muted);
-            line-height: 1.4;
         }
 
         .pillRow {
             display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+            align-items: center;
             justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 0.55rem;
         }
 
         .pill {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.45rem;
+            min-height: 2.15rem;
+            padding: 0.45rem 0.7rem;
             border: 1px solid var(--color-border);
-            background: var(--color-surface-2);
-            padding: 8px 12px;
             border-radius: 999px;
-            font-size: 12px;
+            background: var(--color-surface);
             color: var(--color-text-secondary);
+            font-size: 0.75rem;
+            white-space: nowrap;
             transition:
-                transform 0.2s ease,
-                border-color 0.2s ease;
+                background 160ms ease,
+                border-color 160ms ease,
+                color 160ms ease,
+                transform 160ms ease;
+        }
 
-            svg {
-                color: var(--color-accent);
-            }
+        .pill svg {
+            color: var(--color-primary);
+        }
 
-            &:hover {
-                transform: translateY(-2px);
-                border-color: var(--color-border-light);
-                color: var(--color-text-primary);
-            }
+        .pill:hover {
+            transform: translateY(-0.1rem);
+            border-color: var(--color-border-light);
+            background: var(--color-surface-2);
+            color: var(--color-text-primary);
+        }
+
+        .contentCard {
+            padding: 2rem;
+            border: 1px solid var(--color-border);
+            border-radius: 1rem;
+            background: var(--color-surface);
+            box-shadow: 0 1rem 2.5rem var(--color-shadow);
         }
 
         .body {
-            p {
-                font-size: 16px;
-                line-height: 1.85;
-                margin-bottom: 18px;
-                color: var(--color-text-secondary);
-            }
+            max-width: 78ch;
+        }
+
+        .body p {
+            margin-bottom: 1.15rem;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--color-text-secondary);
+        }
+
+        .body p:last-child {
+            margin-bottom: 0;
         }
 
         .metaBar {
-            margin-top: 26px;
-            padding-top: 18px;
+            margin-top: 1.75rem;
+            padding-top: 1rem;
             border-top: 1px solid var(--color-border);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 14px;
+            gap: 1rem;
             flex-wrap: wrap;
         }
 
         .metaLeft {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            color: var(--color-text-muted);
-            font-size: 12px;
+            gap: 0.6rem;
         }
 
         .metaIcon {
-            width: 26px;
-            height: 26px;
-            border-radius: 10px;
-            border: 1px solid var(--color-border);
-            background: color-mix(
-                in srgb,
-                var(--color-surface-2) 85%,
-                var(--color-primary)
-            );
-            color: var(--color-primary);
+            width: 1.8rem;
+            height: 1.8rem;
             display: grid;
             place-items: center;
+            border: 1px solid var(--color-border);
+            border-radius: 0.55rem;
+            background: var(--color-surface-2);
+            color: var(--color-primary);
+        }
 
-            svg {
-                font-size: 14px;
-            }
+        .metaIcon svg {
+            font-size: 0.8rem;
         }
 
         .metaLabel {
-            font-weight: 800;
-            color: var(--color-text-secondary);
-            letter-spacing: 0.2px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
         }
 
         .metaValue {
+            padding: 0.45rem 0.65rem;
+            border: 1px solid var(--color-border);
+            border-radius: 999px;
+            background: var(--color-surface-2);
+            color: var(--color-text-secondary);
             font-family:
                 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
                 "Liberation Mono", "Courier New", monospace;
-            color: var(--color-text-primary);
-            font-size: 12px;
-            border: 1px solid var(--color-border);
-            background: var(--color-surface);
-            padding: 7px 10px;
-            border-radius: 999px;
+            font-size: 0.72rem;
             white-space: nowrap;
-            transform: translateY(0);
-            transition:
-                transform 0.2s ease,
-                border-color 0.2s ease;
-
-            &:hover {
-                transform: translateY(-2px);
-                border-color: var(--color-border-light);
-            }
         }
 
-        @media (max-width: 768px) {
-            padding: 28px;
+        @media (max-width: 900px) {
+            padding-top: 1.5rem;
 
-            .title {
-                font-size: 24px;
+            .headerRow {
+                flex-direction: column;
+                align-items: stretch;
             }
 
             .pillRow {
                 justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 640px) {
+            padding-top: 1.25rem;
+
+            .titleSection {
+                align-items: flex-start;
+            }
+
+            .iconBox {
+                width: 2.7rem;
+                height: 2.7rem;
+            }
+
+            .contentCard {
+                padding: 1.25rem;
+                border-radius: 0.85rem;
+            }
+
+            .body p {
+                font-size: 0.95rem;
+                line-height: 1.75;
+            }
+
+            .metaBar {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .metaValue {
+                max-width: 100%;
+                white-space: normal;
             }
         }
     `,

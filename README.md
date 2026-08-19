@@ -1,142 +1,218 @@
 # Algorithms Core Notes
 
-A single-page, at-a-glance revision project for core algorithms and pattern-based problem solving.
+A focused collection of core algorithm notes, patterns, explanations, and JavaScript examples built as an interactive React application.
 
-This project is designed as a fast reference and structured summary sheet covering essential algorithm concepts without unnecessary depth.  
-It focuses on clarity, time and space trade-offs, correctness thinking, and interview-ready patterns using clean JavaScript examples.
+The project is designed for quick revision, interview preparation, and strengthening algorithmic problem-solving fundamentals.
 
----
+## Topics
 
-![alt text](image.png)
+- Algorithm Overview
+- Foundation Layer
+- Searching
+- Sorting
+- Recursion Patterns
+- Sliding Window
+- Stack & Queue
+- Greedy Algorithms
+- Dynamic Programming
+- Graph Algorithms
 
----
+## Features
 
-## Purpose
-
-- Quick revision before interviews
-- Rapid recall of core algorithm patterns
-- Strong mental model of time complexity and space complexity
-- Practical, decision-driven reminders for choosing the right approach
-- Clear JavaScript implementations that prioritize logic over language tricks
-
-## Coverage
-
-### Foundations (Non-negotiable)
-
-- What is an algorithm
-- Input → process → output model
-- Correctness vs efficiency
-- Complexity recap (time and space)
-- Big O refresher (brief but clear)
-- Common growth rates intuition
-- Recursion mental model and stack cost
-- Iterative vs recursive trade-offs
-- Amortized analysis (quick intro)
-- Lower bounds (conceptual)
-
-### Searching
-
-- Linear search
-- Binary search
-- Binary search variations (first/last occurrence, lower/upper bound)
-- Search on answer concept (intro)
-- Two pointer search idea (when applicable)
-
-### Sorting
-
-- Bubble sort
-- Selection sort
-- Insertion sort
-- Merge sort
-- Quick sort
-- Heap sort (concept + usage)
-- Counting sort (when constraints allow)
-- Stable vs unstable sorting
-- In-place vs extra memory sorting
-
-### Recursion and Backtracking
-
-- Base case thinking
-- Subsets generation
-- Permutations generation
-- Combination patterns
-- Backtracking pruning concept
-- Divide and conquer concept
-
-### Two Pointers and Sliding Window
-
-- Two pointers basics
-- Opposite ends pointers pattern
-- Fast and slow pointers (cycle detection idea)
-- Sliding window fixed size
-- Sliding window variable size
-- Common window problems (sum, max, distinct count concept)
-
-### Stack and Queue Patterns
-
-- Stack fundamentals for “undo / nesting”
-- Valid parentheses
-- Next greater element concept
-- Monotonic stack (intro)
-- Queue for BFS mindset
-- Deque usage patterns (intro)
-
-### Greedy Algorithms
-
-- Greedy choice property (intuition)
-- Interval scheduling concept
-- Two pointers + greedy combinations
-- When greedy fails (quick warning)
-- Greedy vs DP boundary (intro)
-
-### Dynamic Programming (DP)
-
-- Overlapping subproblems and optimal substructure
-- Memoization (top-down)
-- Tabulation (bottom-up)
-- 1D DP patterns (Fibonacci style)
-- 2D DP intuition (grid style intro)
-- 0/1 knapsack concept
-- Longest increasing subsequence (conceptual)
-- DP state design checklist
-
-### Graph Algorithms (Core)
-
-- Graph representations (adjacency list, matrix)
-- BFS
-- DFS
-- Connected components idea
-- Cycle detection concept
-- Topological sort concept
-- Shortest path intro (BFS vs Dijkstra idea)
-- Union-Find usage concept (for cycle/MST idea)
-
-### Complexity Master Section
-
-- Worst case vs average case
-- Time vs space trade-offs
-- When Big O hides constants
-- Practical performance mistakes (nested loops, repeated scanning, heavy sorting)
-- Choosing the right approach under constraints
+- Topic-based navigation using React Router
+- Clean bookmarkable URLs for every topic
+- Lazy-loaded topic pages
+- Loading state during page transitions
+- Fixed desktop sidebar navigation
+- Responsive horizontal navigation on smaller screens
+- Automatic active-menu positioning on mobile
+- Automatic scroll-to-top on route changes
+- Go To Top button for long pages
+- Responsive desktop and mobile layout
+- Dark developer-focused interface
+- Practical JavaScript examples
+- Time and space complexity references
+- Vercel SPA routing support
+- Production-ready Vite build
 
 ## Tech Stack
 
 - React
 - Vite
+- React Router
 - styled-components
+- react-icons
+- JavaScript
 
-## Project Type
+## Project Structure
 
-Single page only  
-Section-based navigation  
-Searchable and expandable content  
-No blog-style content, only structured notes
+```text
+algorithms-core-notes/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── aboutAlgorithms/
+│   │   ├── footer/
+│   │   ├── goToTop/
+│   │   ├── header/
+│   │   ├── loader/
+│   │   └── sidebar/
+│   ├── topics/
+│   │   ├── dynamicProgramming/
+│   │   ├── foundationLayer/
+│   │   ├── graphAlgorithms/
+│   │   ├── greedy/
+│   │   ├── recursionPatterns/
+│   │   ├── searching/
+│   │   ├── slidingWindow/
+│   │   ├── sorting/
+│   │   └── stackQueueBasedProblems/
+│   ├── App.jsx
+│   ├── App.styled.js
+│   ├── index.css
+│   ├── main.jsx
+│   └── theme.css
+├── index.html
+├── package.json
+├── vercel.json
+└── vite.config.js
+```
 
-Each section is modular and collapsible for fast scanning.
+## Routes
 
-## Run Locally
+| Route                  | Topic               |
+| ---------------------- | ------------------- |
+| `/`                    | Algorithm Overview  |
+| `/foundation`          | Foundation Layer    |
+| `/searching`           | Searching           |
+| `/sorting`             | Sorting             |
+| `/recursion-patterns`  | Recursion Patterns  |
+| `/sliding-window`      | Sliding Window      |
+| `/stack-queue`         | Stack & Queue       |
+| `/greedy`              | Greedy Algorithms   |
+| `/dynamic-programming` | Dynamic Programming |
+| `/graph-algorithms`    | Graph Algorithms    |
+
+## Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/a2rp/algorithms-core-notes.git
+```
+
+Move into the project:
+
+```bash
+cd algorithms-core-notes
+```
+
+Install dependencies:
 
 ```bash
 npm install
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
+
+## Production Build
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## Routing
+
+The application uses `BrowserRouter` from React Router.
+
+Every algorithm topic has its own clean route, making individual sections directly accessible and bookmarkable.
+
+For example:
+
+```text
+/foundation
+/sorting
+/sliding-window
+/dynamic-programming
+/graph-algorithms
+```
+
+Topic components are loaded using React lazy loading and `Suspense`, helping keep the initial application bundle focused.
+
+## Deployment
+
+The project is configured for deployment on Vercel.
+
+`vercel.json` provides the SPA rewrite required by `BrowserRouter`:
+
+```json
+{
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
+}
+```
+
+This allows routes such as `/sorting` and `/graph-algorithms` to work correctly when opened directly or refreshed.
+
+## Purpose
+
+Algorithms Core Notes is intended to be a practical revision resource rather than a collection of disconnected code snippets.
+
+Each section focuses on understanding:
+
+- what the algorithm or pattern does
+- when it should be used
+- how it works
+- common implementation patterns
+- time complexity
+- space complexity
+- practical JavaScript implementations
+
+The goal is fast recall and stronger algorithmic decision-making during interviews and real development work.
+
+## Documentation
+
+Detailed project and topic documentation is available in `DOCUMENTATION.md`.
+
+## Author
+
+**Ashish Ranjan**
+
+Full-Stack Web Developer
+
+## Links
+
+- Portfolio: https://www.ashishranjan.net
+- GitHub: https://github.com/a2rp
+- CodePen: https://codepen.io/ash1198
+- LinkedIn: https://www.linkedin.com/in/aashishranjan
+- Facebook: https://www.facebook.com/theash.ashish/
+- YouTube: https://www.youtube.com/@ashishranjan-ashz?sub_confirmation=1
+- Email: mailto:ash.ranjan09@gmail.com
+
+## Support
+
+- Support: https://a2rp-donation-page.netlify.app/
+- Buy Me A Coffee: https://buymeacoffee.com/a2rp
+- Patreon: https://patreon.com/a2rp
+
+## License
+
+This project is licensed under the MIT License.

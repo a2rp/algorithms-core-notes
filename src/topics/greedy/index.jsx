@@ -1,210 +1,275 @@
-import React, { useState } from "react";
-import { Styled } from "./styled";
+import React from "react";
+
 import {
-    FiChevronDown,
-    FiChevronUp,
-    FiZap,
-    FiTarget,
+    FiCheckCircle,
+    FiClock,
     FiDollarSign,
-    FiFeather,
+    FiTarget,
     FiTrendingUp,
 } from "react-icons/fi";
 
-const Greedy = () => {
-    const [open, setOpen] = useState(false);
+import { Styled } from "./styled";
 
+const Greedy = () => {
     return (
         <Styled.Wrapper>
-            <Styled.Container className={open ? "open" : ""}>
-                <Styled.Header onClick={() => setOpen(!open)}>
-                    <div className="left">
-                        <div className="icon">
-                            <FiZap />
-                        </div>
-
-                        <div className="titleBlock">
-                            <h2>Greedy</h2>
-                            <p>Pick the best local choice and move forward</p>
-                        </div>
+            <div className="pageHeader">
+                <div className="titleSection">
+                    <div className="iconBox">
+                        <FiTarget />
                     </div>
 
-                    <div className="right">
-                        {open ? <FiChevronUp /> : <FiChevronDown />}
+                    <div>
+                        <h2 className="title">Greedy</h2>
+
+                        <p className="subtitle">
+                            Make the best local choice and move forward
+                        </p>
                     </div>
-                </Styled.Header>
+                </div>
+            </div>
 
-                {open && (
-                    <Styled.Content>
-                        <div className="intro">
-                            Greedy algorithms build the answer step-by-step by
-                            choosing the best option right now. They are fast
-                            and simple, but they only work when the problem has
-                            the{" "}
-                            <span className="mono">greedy choice property</span>{" "}
-                            (a locally optimal choice leads to a globally
-                            optimal solution). When greedy fails, Dynamic
-                            Programming is usually the next stop.
-                        </div>
+            <div className="intro">
+                Greedy algorithms make the best available choice at each step
+                without revisiting previous decisions. They are often simple and
+                fast, but they work only when local optimal choices lead to a
+                globally optimal solution.
+            </div>
 
-                        <div className="grid">
-                            <div className="card">
-                                <div className="cardHead">
-                                    <FiTarget />
-                                    <h3>Activity Selection</h3>
-                                </div>
+            <div className="grid">
+                <article className="card">
+                    <div className="cardHead">
+                        <FiTarget />
 
-                                <p>
-                                    Goal: select the maximum number of
-                                    non-overlapping activities. Greedy rule:
-                                    sort by end time and always pick the
-                                    earliest finishing activity.
-                                </p>
+                        <h3>Greedy Mental Model</h3>
+                    </div>
 
-                                <pre>{`// Each activity: { start, end }
-// Greedy: sort by end, pick compatible ones
+                    <p>
+                        At every step, choose the option that looks best right
+                        now. Do not backtrack.
+                    </p>
 
-function activitySelection(activities) {
-  const sorted = [...activities].sort((a, b) => a.end - b.end);
+                    <pre>{`// Generic greedy pattern
 
-  const picked = [];
-  let lastEnd = -Infinity;
+function greedy(items) {
+  // Often sorting is the first step
+  items.sort(/* useful order */);
 
-  for (const act of sorted) {
-    if (act.start >= lastEnd) {
-      picked.push(act);
-      lastEnd = act.end;
+  let result = [];
+
+  for (const item of items) {
+    if (canTake(item, result)) {
+      result.push(item);
     }
   }
 
-  return picked;
+  return result;
+}`}</pre>
+
+                    <p className="mini">
+                        The hard part is proving that the local choice is
+                        globally safe.
+                    </p>
+                </article>
+
+                <article className="card">
+                    <div className="cardHead">
+                        <FiClock />
+
+                        <h3>Activity Selection</h3>
+                    </div>
+
+                    <p>
+                        Select the maximum number of non-overlapping activities.
+                        Greedy choice: always pick the activity that finishes
+                        earliest.
+                    </p>
+
+                    <pre>{`function activitySelection(activities) {
+  activities.sort(
+    (a, b) => a.end - b.end
+  );
+
+  const selected = [];
+  let lastEnd = -Infinity;
+
+  for (const activity of activities) {
+    if (activity.start >= lastEnd) {
+      selected.push(activity);
+      lastEnd = activity.end;
+    }
+  }
+
+  return selected;
 }
 
-// Example
-const acts = [
+// Example:
+const activities = [
   { start: 1, end: 2 },
   { start: 3, end: 4 },
   { start: 0, end: 6 },
   { start: 5, end: 7 },
   { start: 8, end: 9 },
-  { start: 5, end: 9 },
 ];
 
-console.log(activitySelection(acts));
-// picks max compatible set (by end time)`}</pre>
+console.log(
+  activitySelection(activities)
+);`}</pre>
 
-                                <p className="mini">
-                                    Time: O(n log n) for sorting, Space: O(n)
-                                    for result
-                                </p>
-                            </div>
+                    <p className="mini">Sorting dominates: O(n log n).</p>
+                </article>
 
-                            <div className="card">
-                                <div className="cardHead">
-                                    <FiDollarSign />
-                                    <h3>Coin Change: Greedy vs DP</h3>
-                                </div>
+                <article className="card">
+                    <div className="cardHead">
+                        <FiDollarSign />
 
-                                <p>
-                                    Greedy rule: take the largest coin possible
-                                    repeatedly. This works for some coin systems
-                                    (like typical currency), but fails for
-                                    others.
-                                </p>
+                        <h3>Fractional Knapsack</h3>
+                    </div>
 
-                                <pre>{`// Greedy coin change (may fail depending on coins)
-function coinChangeGreedy(coins, amount) {
-  const sorted = [...coins].sort((a, b) => b - a);
+                    <p>
+                        Items can be taken partially. Greedy choice: take the
+                        highest value-per-weight ratio first.
+                    </p>
 
-  const used = [];
-  let remaining = amount;
+                    <pre>{`function fractionalKnapsack(
+  items,
+  capacity
+) {
+  items.sort(
+    (a, b) =>
+      b.value / b.weight -
+      a.value / a.weight
+  );
 
-  for (const c of sorted) {
-    while (remaining >= c) {
-      used.push(c);
-      remaining -= c;
+  let totalValue = 0;
+
+  for (const item of items) {
+    if (capacity === 0) break;
+
+    if (item.weight <= capacity) {
+      totalValue += item.value;
+      capacity -= item.weight;
+    } else {
+      const fraction =
+        capacity / item.weight;
+
+      totalValue +=
+        item.value * fraction;
+
+      capacity = 0;
     }
   }
 
-  return remaining === 0 ? used : null;
+  return totalValue;
+}`}</pre>
+
+                    <p className="mini">
+                        Greedy works here because fractions are allowed.
+                    </p>
+                </article>
+
+                <article className="card">
+                    <div className="cardHead">
+                        <FiTrendingUp />
+
+                        <h3>Coin Change - When Greedy Works</h3>
+                    </div>
+
+                    <p>
+                        For some coin systems, choosing the largest coin first
+                        gives the minimum number of coins.
+                    </p>
+
+                    <pre>{`function greedyCoinChange(
+  coins,
+  amount
+) {
+  coins.sort((a, b) => b - a);
+
+  const used = [];
+
+  for (const coin of coins) {
+    while (amount >= coin) {
+      amount -= coin;
+      used.push(coin);
+    }
+  }
+
+  return amount === 0
+    ? used
+    : null;
 }
 
-// Case where greedy works (common currency)
-console.log(coinChangeGreedy([1, 2, 5, 10], 18)); // 10,5,2,1
+// Example:
+// coins = [25, 10, 5, 1]
+// amount = 41
+//
+// result:
+// [25, 10, 5, 1]`}</pre>
 
-// Case where greedy fails
-// coins: 1, 3, 4 amount: 6
-// greedy: 4 + 1 + 1 (3 coins)
-// optimal: 3 + 3 (2 coins)
-console.log(coinChangeGreedy([1, 3, 4], 6));`}</pre>
+                    <p className="mini">
+                        This is not correct for every coin system.
+                    </p>
+                </article>
 
-                                <p className="mini">
-                                    Greedy is fast but not guaranteed optimal.
-                                    DP guarantees optimal solution.
-                                </p>
-                            </div>
+                <article className="card">
+                    <div className="cardHead">
+                        <FiCheckCircle />
 
-                            <div className="card">
-                                <div className="cardHead">
-                                    <FiFeather />
-                                    <h3>Huffman Coding Concept</h3>
-                                </div>
+                        <h3>When Greedy Fails</h3>
+                    </div>
 
-                                <p>
-                                    Huffman coding builds an optimal prefix code
-                                    for compression. Greedy idea: repeatedly
-                                    merge the two least frequent nodes.
-                                </p>
+                    <p>
+                        A locally best choice can block a better global
+                        solution.
+                    </p>
 
-                                <pre>{`// Concept only (implementation uses min-heap):
-// 1) put all (char, freq) in a min-heap
-// 2) pop two smallest nodes
-// 3) merge into a new node with freq = sum
-// 4) push merged node back
-// 5) repeat until one node remains (root)
+                    <pre>{`// Example coin system:
+// [1, 3, 4]
+//
+// amount = 6
+//
+// Greedy:
+// 4 + 1 + 1 = 3 coins
+//
+// Optimal:
+// 3 + 3 = 2 coins
 
-// Result: shorter codes for frequent chars,
-// longer codes for rare chars.
+// Greedy fails.`}</pre>
 
-// Greedy choice: always combine two smallest frequencies.`}</pre>
+                    <p className="mini">
+                        If choices affect future possibilities, dynamic
+                        programming may be needed.
+                    </p>
+                </article>
 
-                                <p className="mini">
-                                    Uses a priority queue (min-heap). Time: O(n
-                                    log n)
-                                </p>
-                            </div>
+                <article className="card">
+                    <div className="cardHead">
+                        <FiTarget />
 
-                            <div className="card">
-                                <div className="cardHead">
-                                    <FiTrendingUp />
-                                    <h3>When Greedy Works</h3>
-                                </div>
+                        <h3>Greedy Checklist</h3>
+                    </div>
 
-                                <p>Greedy works when:</p>
+                    <p>Before choosing a greedy solution, ask:</p>
 
-                                <ul className="list">
-                                    <li>
-                                        <span className="dot" />
-                                        Greedy choice property holds
-                                    </li>
-                                    <li>
-                                        <span className="dot" />
-                                        Optimal substructure exists
-                                    </li>
-                                    <li>
-                                        <span className="dot" />
-                                        Local best leads to global best
-                                    </li>
-                                </ul>
+                    <pre>{`1) Can I make one local choice
+   and safely move forward?
 
-                                <p className="mini">
-                                    If you can produce a counterexample where
-                                    greedy fails, you likely need DP.
-                                </p>
-                            </div>
-                        </div>
-                    </Styled.Content>
-                )}
-            </Styled.Container>
+2) Does sorting expose the
+   best choice?
+
+3) Can I prove the greedy
+   choice never hurts?
+
+4) Is backtracking unnecessary?
+
+5) Does a counterexample exist?`}</pre>
+
+                    <p className="mini">
+                        Never use greedy only because the code looks simple.
+                    </p>
+                </article>
+            </div>
         </Styled.Wrapper>
     );
 };
