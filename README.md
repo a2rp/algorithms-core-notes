@@ -48,34 +48,34 @@ The project is designed for quick revision, interview preparation, and strengthe
 
 ```text
 algorithms-core-notes/
-├── public/
-├── src/
-│   ├── components/
-│   │   ├── aboutAlgorithms/
-│   │   ├── footer/
-│   │   ├── goToTop/
-│   │   ├── header/
-│   │   ├── loader/
-│   │   └── sidebar/
-│   ├── topics/
-│   │   ├── dynamicProgramming/
-│   │   ├── foundationLayer/
-│   │   ├── graphAlgorithms/
-│   │   ├── greedy/
-│   │   ├── recursionPatterns/
-│   │   ├── searching/
-│   │   ├── slidingWindow/
-│   │   ├── sorting/
-│   │   └── stackQueueBasedProblems/
-│   ├── App.jsx
-│   ├── App.styled.js
-│   ├── index.css
-│   ├── main.jsx
-│   └── theme.css
-├── index.html
-├── package.json
-├── vercel.json
-└── vite.config.js
+â”œâ”€â”€ public/
+â”œâ”€â”€ src/
+â”‚   â”œâ”€â”€ components/
+â”‚   â”‚   â”œâ”€â”€ aboutAlgorithms/
+â”‚   â”‚   â”œâ”€â”€ footer/
+â”‚   â”‚   â”œâ”€â”€ goToTop/
+â”‚   â”‚   â”œâ”€â”€ header/
+â”‚   â”‚   â”œâ”€â”€ loader/
+â”‚   â”‚   â””â”€â”€ sidebar/
+â”‚   â”œâ”€â”€ topics/
+â”‚   â”‚   â”œâ”€â”€ dynamicProgramming/
+â”‚   â”‚   â”œâ”€â”€ foundationLayer/
+â”‚   â”‚   â”œâ”€â”€ graphAlgorithms/
+â”‚   â”‚   â”œâ”€â”€ greedy/
+â”‚   â”‚   â”œâ”€â”€ recursionPatterns/
+â”‚   â”‚   â”œâ”€â”€ searching/
+â”‚   â”‚   â”œâ”€â”€ slidingWindow/
+â”‚   â”‚   â”œâ”€â”€ sorting/
+â”‚   â”‚   â””â”€â”€ stackQueueBasedProblems/
+â”‚   â”œâ”€â”€ App.jsx
+â”‚   â”œâ”€â”€ App.styled.js
+â”‚   â”œâ”€â”€ index.css
+â”‚   â”œâ”€â”€ main.jsx
+â”‚   â””â”€â”€ theme.css
+â”œâ”€â”€ index.html
+â”œâ”€â”€ package.json
+â”œâ”€â”€ vercel.json
+â””â”€â”€ vite.config.js
 ```
 
 ## Routes
@@ -189,7 +189,6 @@ The goal is fast recall and stronger algorithmic decision-making during intervie
 
 ## Documentation
 
-Detailed project and topic documentation is available in `DOCUMENTATION.md`.
 
 ## Author
 
