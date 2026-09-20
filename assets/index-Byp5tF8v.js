@@ -1,4 +1,4 @@
-import{c as a,j as e,p as s,l as r,f as i,b as o,a as n,d as t}from"./index-DuOKri2p.js";const c={Wrapper:a.section`
+import{c as a,j as e,p as s,l as r,f as i,b as o,a as n,d as t}from"./index-D4ns_bpJ.js";const c={Wrapper:a.section`
         width: 100%;
         padding: 2rem 0;
 
