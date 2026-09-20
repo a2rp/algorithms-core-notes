@@ -1,4 +1,4 @@
-import{c as i,j as e,a as r,e as a,o as t,d as s,k as o}from"./index-Cp03ssRU.js";const c={Wrapper:i.section`
+import{c as i,j as e,a as r,e as a,o as t,d as s,k as o}from"./index-OhGjt0sV.js";const c={Wrapper:i.section`
         width: 100%;
         padding: 2rem 0;
 
