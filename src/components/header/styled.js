@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 export const Styled = {
     Wrapper: styled.div`
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 100;
         min-height: 5rem;
         display: flex;
         align-items: center;
@@ -11,6 +16,12 @@ export const Styled = {
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         background: rgba(5, 5, 6, 0.96);
         backdrop-filter: blur(1rem);
+        transform: translateY(0);
+        transition: transform 220ms ease, box-shadow 220ms ease;
+
+        &.hidden {
+            transform: translateY(-110%);
+        }
 
         .brand {
             min-width: 0;
@@ -76,10 +87,8 @@ export const Styled = {
         }
 
         .actionLink:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.18);
-            color: #ffffff;
-            transform: translateY(-0.1rem);
+            box-shadow: 0 0.7rem 1.6rem rgba(56, 189, 248, 0.16);
+            text-shadow: 0 0 0.7rem rgba(125, 211, 252, 0.5);
         }
 
         .icon {

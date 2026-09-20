@@ -21,6 +21,7 @@ export const Styled = {
     `,
 
     Main: styled.main`
+        margin-top: 5rem;
         display: grid;
         grid-template-columns: 15.75rem minmax(0, 1fr);
         height: calc(100vh - 5rem);
@@ -63,6 +64,7 @@ export const Styled = {
 
         @media (max-width: 900px) {
             display: block;
+            margin-top: 4.5rem;
             height: auto;
             min-height: 0;
             overflow: visible;
