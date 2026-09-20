@@ -11,7 +11,7 @@ export default [
             ecmaVersion: 2020,
             globals: {
                 ...globals.browser,
-                __APP_BUILD_ISO__: "readonly",
+                __BUILD_TIME__: "readonly",
             },
             parserOptions: {
                 ecmaVersion: "latest",

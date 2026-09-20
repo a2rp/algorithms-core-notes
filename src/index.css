@@ -131,7 +131,7 @@ a {
 }
 
 a:hover {
-    text-shadow: 0 0 0.7rem rgba(56, 189, 248, 0.45);
+    color: var(--color-link-hover);
 }
 
 /* Lists */
@@ -229,7 +229,7 @@ hr {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    box-shadow: inset 0 0 0 2px var(--color-primary);
+    background: var(--color-primary);
 }
 
 * {

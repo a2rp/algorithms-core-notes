@@ -1,26 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import { FaArrowUpRightFromSquare, FaGithub } from "react-icons/fa6";
 
 import { Styled } from "./styled";
 
 const Header = () => {
-    const [isHidden, setIsHidden] = useState(false);
-
-    useEffect(() => {
-        let previousScroll = 0;
-        const handleScroll = () => {
-            const currentScroll = window.scrollY;
-            setIsHidden(currentScroll > 80 && currentScroll > previousScroll);
-            previousScroll = currentScroll;
-            if (currentScroll <= 20) setIsHidden(false);
-        };
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
     return (
-        <Styled.Wrapper className={isHidden ? "hidden" : ""}>
+        <Styled.Wrapper>
             <div className="brand">
                 <div className="titleRow">
                     <h1 className="title">Algorithms Core Notes</h1>
