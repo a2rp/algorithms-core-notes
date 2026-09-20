@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
     plugins: [react()],
+    base: "/algorithms-core-notes/",
 
     define: {
         __APP_BUILD_ISO__: JSON.stringify(new Date().toISOString()),
