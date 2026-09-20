@@ -2,6 +2,8 @@
 
 Algorithms Core Notes is an interactive React revision guide for common algorithms, problem-solving patterns, complexity, and practical JavaScript implementations.
 
+![Algorithms Core Notes preview](screenshot.png)
+
 ## Topics
 
 - Foundation Layer
