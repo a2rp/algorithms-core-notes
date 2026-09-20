@@ -24,7 +24,7 @@ Algorithms Core Notes is an interactive React revision guide for common algorith
 
 ## Tech Stack
 
-React, Vite, React Router, JavaScript, React Icons, and CSS styling.
+React, Vite, React Router, JavaScript, React Icons, and CSS Modules.
 
 ## Getting Started
 

@@ -9,11 +9,11 @@ import {
     FiTrendingUp,
 } from "react-icons/fi";
 
-import { Styled } from "./styled";
+import topicStyles from "../../styles/topics.module.css";
 
 const FoundationLayer = () => {
     return (
-        <Styled.Wrapper>
+        <section className={`topicPage ${topicStyles.topicStyles}`}>
             <div className="pageHeader">
                 <div className="titleSection">
                     <div className="iconBox">
@@ -338,7 +338,7 @@ T(n) = 2*T(n/2) + O(n)
                     </p>
                 </article>
             </div>
-        </Styled.Wrapper>
+        </section>
     );
 };
 

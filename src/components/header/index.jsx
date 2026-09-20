@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import { FaArrowUpRightFromSquare, FaGithub } from "react-icons/fa6";
 
-import { Styled } from "./styled";
-
 const Header = () => {
     const [isHidden, setIsHidden] = useState(false);
 
@@ -20,7 +18,7 @@ const Header = () => {
     }, []);
 
     return (
-        <Styled.Wrapper className={isHidden ? "hidden" : ""}>
+        <div className={`siteHeader ${isHidden ? "hidden" : ""}`}>
             <div className="brand">
                 <div className="titleRow">
                     <h1 className="title">Algorithms Core Notes</h1>
@@ -56,7 +54,7 @@ const Header = () => {
                     <FaArrowUpRightFromSquare className="smallIcon" />
                 </a>
             </div>
-        </Styled.Wrapper>
+        </div>
     );
 };
 

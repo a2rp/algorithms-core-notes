@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import { FiArrowUp } from "react-icons/fi";
 
-import { Styled } from "./styled";
-
 const MOBILE_BREAKPOINT = 900;
 
 const GoToTop = ({ containerRef, threshold = 320 }) => {
@@ -62,14 +60,15 @@ const GoToTop = ({ containerRef, threshold = 320 }) => {
     }
 
     return (
-        <Styled.Wrapper
+        <button
+            className="goToTop"
             type="button"
             onClick={handleGoToTop}
             aria-label="Go to top"
             title="Go to top"
         >
             <FiArrowUp />
-        </Styled.Wrapper>
+        </button>
     );
 };
 

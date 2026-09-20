@@ -1,8 +1,6 @@
 import React from "react";
 import { FaCodepen, FaFacebook, FaGithub, FaLinkedin, FaPatreon, FaYoutube } from "react-icons/fa6";
 import { FiCoffee, FiGlobe, FiHeart, FiMail } from "react-icons/fi";
-import { Styled } from "./styled";
-
 const Footer = () => {
     const links = [
         ["Portfolio", "https://www.ashishranjan.net/", FiGlobe],
@@ -18,13 +16,9 @@ const Footer = () => {
     ];
 
     return (
-        <Styled.Wrapper>
+        <footer className="siteFooter">
             <div className="left">
-                &copy; {new Date().getFullYear()} All rights reserved
-            </div>
-
-            <div className="right">
-                By&nbsp;
+                Copyright &copy; {new Date().getFullYear()} {" "}
                 <a href="https://www.ashishranjan.net/" target="_blank" rel="noopener noreferrer">
                     Ashish Ranjan
                 </a>
@@ -44,7 +38,7 @@ const Footer = () => {
                     </a>
                 ))}
             </div>
-        </Styled.Wrapper>
+        </footer>
     );
 };
 

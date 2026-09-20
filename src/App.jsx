@@ -2,7 +2,7 @@ import React, { lazy, Suspense, useEffect, useRef } from "react";
 
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
-import { Styled } from "./App.styled";
+import layoutStyles from "./styles/layout.module.css";
 
 import Header from "./components/header";
 import Footer from "./components/footer";
@@ -55,12 +55,12 @@ const App = () => {
     }, [location.pathname]);
 
     return (
-        <Styled.Wrapper>
-            <Styled.Header>
+        <div className={`appWrapper ${layoutStyles.layoutStyles}`}>
+            <header className="appHeader">
                 <Header />
-            </Styled.Header>
+            </header>
 
-            <Styled.Main>
+            <main className="appMain">
                 <div className="sidebarWrapper">
                     <Sidebar />
                 </div>
@@ -117,10 +117,10 @@ const App = () => {
                         <Footer />
                     </div>
                 </div>
-            </Styled.Main>
+            </main>
 
             <GoToTop containerRef={contentRef} />
-        </Styled.Wrapper>
+        </div>
     );
 };
 

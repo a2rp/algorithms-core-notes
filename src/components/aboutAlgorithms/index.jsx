@@ -8,8 +8,6 @@ import {
     FiTrendingUp,
 } from "react-icons/fi";
 
-import { Styled } from "./styled";
-
 const AboutAlgorithms = () => {
     const buildISO = __APP_BUILD_ISO__;
 
@@ -24,7 +22,7 @@ const AboutAlgorithms = () => {
     });
 
     return (
-        <Styled.Wrapper>
+        <section className="aboutAlgorithms">
             <div className="headerRow">
                 <div className="titleSection">
                     <div className="iconBox">
@@ -99,7 +97,7 @@ const AboutAlgorithms = () => {
                     <span className="metaValue">{formattedDateTime}</span>
                 </div>
             </div>
-        </Styled.Wrapper>
+        </section>
     );
 };
 

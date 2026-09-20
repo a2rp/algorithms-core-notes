@@ -8,11 +8,11 @@ import {
     FiTarget,
 } from "react-icons/fi";
 
-import { Styled } from "./styled";
+import topicStyles from "../../styles/topics.module.css";
 
 const RecursionPatterns = () => {
     return (
-        <Styled.Wrapper>
+        <section className={`topicPage ${topicStyles.topicStyles}`}>
             <div className="pageHeader">
                 <div className="titleSection">
                     <div className="iconBox">
@@ -202,7 +202,7 @@ function factorialTail(n, acc = 1) {
                     </p>
                 </article>
             </div>
-        </Styled.Wrapper>
+        </section>
     );
 };
 

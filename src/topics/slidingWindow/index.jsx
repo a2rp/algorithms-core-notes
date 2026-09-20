@@ -8,11 +8,11 @@ import {
     FiTrendingUp,
 } from "react-icons/fi";
 
-import { Styled } from "./styled";
+import topicStyles from "../../styles/topics.module.css";
 
 const SlidingWindow = () => {
     return (
-        <Styled.Wrapper>
+        <section className={`topicPage ${topicStyles.topicStyles}`}>
             <div className="pageHeader">
                 <div className="titleSection">
                     <div className="iconBox">
@@ -280,7 +280,7 @@ console.log(
                     </p>
                 </article>
             </div>
-        </Styled.Wrapper>
+        </section>
     );
 };
 

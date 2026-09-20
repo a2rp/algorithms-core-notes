@@ -15,8 +15,6 @@ import {
     FaWindowMaximize,
 } from "react-icons/fa6";
 
-import { Styled } from "./styled";
-
 const menuItems = [
     {
         label: "Overview",
@@ -112,7 +110,7 @@ const Sidebar = () => {
     }, [location.pathname]);
 
     return (
-        <Styled.Wrapper>
+        <aside className="sidebar">
             <div className="sidebarHeader">
                 <p className="label">Contents</p>
 
@@ -139,7 +137,7 @@ const Sidebar = () => {
                     </NavLink>
                 ))}
             </nav>
-        </Styled.Wrapper>
+        </aside>
     );
 };
 

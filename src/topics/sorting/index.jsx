@@ -9,11 +9,11 @@ import {
     FiTrendingUp,
 } from "react-icons/fi";
 
-import { Styled } from "./styled";
+import topicStyles from "../../styles/topics.module.css";
 
 const Sorting = () => {
     return (
-        <Styled.Wrapper>
+        <section className={`topicPage ${topicStyles.topicStyles}`}>
             <div className="pageHeader">
                 <div className="titleSection">
                     <div className="iconBox">
@@ -433,7 +433,7 @@ function partition(a, lo, hi) {
                     </p>
                 </article>
             </div>
-        </Styled.Wrapper>
+        </section>
     );
 };
 
