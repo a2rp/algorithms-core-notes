@@ -209,7 +209,7 @@ hr {
 /* Selection */
 ::selection {
     background: var(--color-primary);
-    color: #071018;
+    color: #0f0f0f;
 }
 
 /* Scrollbars */
