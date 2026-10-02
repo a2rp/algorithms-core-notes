@@ -78,7 +78,7 @@
 
 :global(.topicPage .card:hover) {
     box-shadow: 0 1rem 2.5rem var(--color-shadow);
-    text-shadow: 0 0 0.7rem rgba(56, 189, 248, 0.35);
+    text-shadow: 0 0 0.7rem var(--color-glow);
 }
 
 :global(.topicPage .cardHead) {
